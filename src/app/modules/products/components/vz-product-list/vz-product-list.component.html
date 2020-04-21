@@ -1,0 +1,50 @@
+<div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
+    <div fxLayout="column" fxFlex="100">
+       <div fxLayout="row wrap" class="p-40" fxFlex>
+          <div fxFlex="50" class="p-10 "> </div>
+          <div fxFlex="50" class="p-10 " fxLayoutAlign="end">
+            <div class="btn-group pull-right views">
+                <button class="list-view-btn" type="button"(click)="setProductView(25)">
+                    <img src="/assets/prod-images/activity-grid-2.png"/>
+                </button>
+                <button class="list-view-btn" type="button"  (click)="setProductView(100)">
+                    <img src="/assets/prod-images/list.png"/>
+                </button>
+            </div>
+             <div class="p-l-20">
+                <select class="list-view-sort" (change)="sortOrder = $event.target.value" #sortVar>
+                <option value="asc">Price: Low to High</option>
+                <option value="desc">Price: High to Low</option>
+                </select>
+             </div>
+          </div>
+          <div fxFlex="{{listView}}" fxFlex.xs="50" class="p-10 cards" *ngFor="let char of prodList | sort:'id': sortOrder">
+             <mat-card class="prod-list">
+                <img mat-card-image src="/assets/prod-images/img-1.jpg" alt="{{char.image}}">                
+                <mat-card-content>
+                   <mat-list dense>
+                      <mat-list-item>
+                         <div fxLayoutAlign="start" fxLayout.lt-sm="column" fxFill>
+                            <span fxFlex="50%" fxLayoutAlign="start" class="color-grey">Name</span>
+                            <span fxFlex="50%" fxLayoutAlign="end" class="color-dark-yellow">{{char.status}}</span>
+                         </div>
+                      </mat-list-item>
+                      <mat-list-item>
+                         <div fxLayoutAlign="start" fxLayout.lt-sm="column" fxFill>
+                            <span fxFlex="50%" fxLayoutAlign="start" class="color-grey">Type</span>
+                            <span fxFlex="50%" fxLayoutAlign="end" class="color-dark-yellow">{{char.species}}</span>
+                         </div>
+                      </mat-list-item>
+                      <mat-list-item>
+                         <div fxLayoutAlign="start" fxLayout.lt-sm="column" fxFill>
+                            <span fxFlex="50%" fxLayoutAlign="start" class="color-grey">GENDER</span>
+                            <span fxFlex="50%" fxLayoutAlign="end" class="color-dark-yellow">{{char.gender}}</span>
+                         </div>
+                      </mat-list-item>                      
+                   </mat-list>
+                </mat-card-content>
+             </mat-card>
+          </div>
+       </div>
+    </div>
+ </div>

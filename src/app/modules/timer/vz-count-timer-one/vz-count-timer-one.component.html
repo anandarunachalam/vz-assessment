@@ -1,0 +1,54 @@
+<div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
+    <div fxLayout="column" fxFlex="100">
+       <div fxLayout="row wrap" class="p-40" fxFlex>
+          
+          <div fxFlex="50" class="p-10"  fxLayoutAlign="end" fxFill>
+            <mat-card class="count-block">
+                <h3>Count Down Timer</h3>
+                <h1>1000</h1>
+            </mat-card>
+          </div>
+          <div fxFlex="50" fxFlex.xs="50" class="p-10 cards">
+             <mat-card class="prod-list">
+                <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Enter Time Limit" formControlName="name">
+                        <mat-error *ngIf="!name.valid && name.touched">
+                            Enter Time Limit
+                        </mat-error>
+                      </mat-form-field>
+                    
+                    <div class="form-element">
+                      <button mat-raised-button color="primary" type="submit" class="button" >Start/Pause</button>
+                      <button mat-raised-button color="primary" type="submit" class="button m-l-10" >Reset</button>
+                    </div>
+                
+                  </form>
+             </mat-card>
+          </div>
+          <div fxFlex="50" class="p-10"  fxLayoutAlign="end" fxFill>
+            <mat-card class="count-block box-shadow-none">
+                    <h5>Started at 14-2-2020 12:38:30 pm</h5>
+                    <h5>Paused at 14-2-2020 12:38:45 pm</h5>
+                    <h5>Started at 14-2-2020 12:39:30 pm</h5>
+                
+            </mat-card>
+          </div>
+          <div fxFlex="25" class="p-10"  fxLayoutAlign="end" fxFill>
+            <mat-card class="count-block box-shadow-none">
+                <h1>2</h1>
+                <h3>Started</h3>                
+            </mat-card>
+          </div>
+          <div fxFlex="25" class="p-10"  fxLayoutAlign="end" fxFill>
+            <mat-card class="count-block box-shadow-none">
+                <h1>1</h1>
+                <h3>Paused</h3>                
+            </mat-card>
+          </div>
+       </div>
+    </div>
+ </div>
+
+

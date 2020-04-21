@@ -1,0 +1,25 @@
+:host ::ng-deep .mat-card-header-text { 
+    margin: 0 0px;
+}
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content { 
+    padding: 0px!important;
+}
+:host ::ng-deep .mat-card-header .mat-card-subtitle { 
+    color: #fff;
+}
+:host ::ng-deep .mat-card {    
+    background-color: #fff;
+}
+:host ::ng-deep .prod-list{
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+:host ::ng-deep  .list-view-btn { 
+    background: #e9c961;
+    box-shadow: none;
+    border: 1px solid #000;
+}
+:host ::ng-deep  .list-view-sort{
+    padding: 5px;
+    border: 1px solid #000;
+}
