@@ -4,22 +4,20 @@ import {MatTableDataSource} from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  class: string;
+  section: string;
+  sub1: string;
+  sub2: string;
+  sub3: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {name: "Anand", class: 'Msc', section: "B", sub1: 'English', sub2: 'Maths',sub3: 'Physics'},
+  {name: "Arun", class: 'Msc', section: "C", sub1: 'English', sub2: 'Maths',sub3: 'Physics'},
+  {name: "Raja", class: 'Msc', section: "D", sub1: 'English', sub2: 'Maths',sub3: 'Physics'},
+  {name: "Ram", class: 'Msc', section: "E", sub1: 'English', sub2: 'Maths',sub3: 'Physics'}
+
+ 
 ];
 @Component({
   selector: 'app-vz-dynamic-table',
@@ -28,12 +26,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class VzDynamicTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['name','class','section','sub1','sub2','sub3'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
+    //this.dataSource.sort = this.sort;
+  }
+  ngAfterViewInit (){
     this.dataSource.sort = this.sort;
   }
 

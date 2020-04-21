@@ -1,30 +1,52 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
+    <div fxLayout="column" fxFlex="100">
+       <div fxLayout="row wrap" class="p-40" fxFlex>
+          
+          <div fxFlex="100" class="p-10 " fxLayoutAlign="end"> 
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                
+                <!-- Name Column -->
+                <ng-container matColumnDef="class">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Class </th>
+                  <td mat-cell *matCellDef="let element"> {{element.class}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="section">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Section </th>
+                  <td mat-cell *matCellDef="let element"> {{element.section}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="sub1">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub1 </th>
+                  <td mat-cell *matCellDef="let element"> {{element.sub1}} </td>
+                </ng-container>
+            
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="sub2">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub2 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sub2}} </td>
+                  </ng-container>
+            
+                  <!-- Symbol Column -->
+                <ng-container matColumnDef="sub3">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub3 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sub3}} </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+    </div>
+</div>
+</div>
+
+

@@ -13,7 +13,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort'; 
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import {MatTableModule} from '@angular/material/table';
         MatGridListModule,
         MatInputModule,
         MatTableModule,
+        MatSortModule,
         FormsModule,
         ReactiveFormsModule
         
@@ -48,6 +50,7 @@ import {MatTableModule} from '@angular/material/table';
         MatGridListModule,
         MatInputModule,
         MatTableModule,
+        MatSortModule,
         FormsModule,
         ReactiveFormsModule
         
