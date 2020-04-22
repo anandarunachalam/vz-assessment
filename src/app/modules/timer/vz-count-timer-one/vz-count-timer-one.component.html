@@ -1,56 +1,29 @@
-<!-- <app-vz-count-down-block></app-vz-count-down-block>
-<app-vz-count-down-form></app-vz-count-down-form>
-<app-vz-count-down-status></app-vz-count-down-status>
-<app-vz-count-down-total></app-vz-count-down-total> -->
-
-
-<div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
-    <div fxLayout="column" fxFlex="100">
-       <div fxLayout="row wrap" class="p-40" fxFlex>
-          
-          <div fxFlex="50" class="p-10"  fxLayoutAlign="end" fxFill>
-            <mat-card class="count-block">
-                <h3>Count Down Timer</h3>
-                <h1>{{countTimeLeft}}</h1>
-            </mat-card>
-          </div>
-          <div fxFlex="50" fxFlex.xs="50" class="p-10 cards">
-             <mat-card class="prod-list">
-                <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-
-                    <mat-form-field class="form-element">
-                        <input matInput placeholder="Enter Time Limit" formControlName="name">
-                        <mat-error *ngIf="!name.valid && name.touched">
-                            Enter Time Limit
-                        </mat-error>
-                      </mat-form-field>
-                    
-                    <div class="form-element">
-                      <button mat-raised-button color="primary" type="submit" class="button">Start/Pause</button>
-                      <button mat-raised-button color="primary" type="button" class="button m-l-10" (click)='pauseTimer()'>Reset</button>
-                    </div>
-                
-                  </form>
-             </mat-card>
-          </div>
-          <div fxFlex="50" class="p-10"  fxLayoutAlign="end" fxFill>
-            <mat-card class="count-block box-shadow-none">
-                <h5 *ngFor="let timadd of countAddedRecent">{{timadd.status}} {{timadd.timestamp | date:'h:mm:ss a zzzz'}}</h5>
-
-            </mat-card>
-          </div>
-          <div fxFlex="25" class="p-10"  fxLayoutAlign="end" fxFill>
-            <mat-card class="count-block box-shadow-none">
-                <h1>{{countStart}}</h1>
-                <h3>Started</h3>                
-            </mat-card>
-          </div>
-          <div fxFlex="25" class="p-10"  fxLayoutAlign="end" fxFill>
-            <mat-card class="count-block box-shadow-none">
-                <h1>{{countPause}}</h1>
-                <h3>Paused</h3>                
-            </mat-card>
-          </div>
-       </div>
-    </div>
- </div>
+<div class="container p-50"  fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="50%">
+    <app-vz-count-down-block [getCount]="countTimeLeft"></app-vz-count-down-block>
+  </div>
+  <div class="item item-2" fxFlex="50%">
+    <mat-card class="prod-list">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+            <mat-form-field class="form-element">
+                <input matInput placeholder="Enter Time Limit" formControlName="name">
+                <mat-error *ngIf="!name.valid && name.touched">
+                    Enter Time Limit
+                </mat-error>
+            </mat-form-field>
+            <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button">Start/Pause</button>
+                <button mat-raised-button color="primary" type="button" class="button m-l-10" (click)='pauseTimer()'>Reset</button>
+            </div>
+        </form>
+    </mat-card>
+  </div>  
+</div>
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" fxLayoutGap.xs="0">
+  <div class="item item-4" fxFlex="50%">
+    <app-vz-count-down-status [getCountStatus]="countAddedRecent" fxFill></app-vz-count-down-status>
+  </div>
+  <div class="item item-5" fxFlex="50%">
+    <app-vz-count-down-total [getCountStart]="countStart" [getCountPause]="countPause" fxFill></app-vz-count-down-total>
+  </div>
+</div>
