@@ -1,0 +1,3 @@
+<mat-card class="count-block box-shadow-none">
+    <h5 *ngFor="let msg of getCountMsg">{{msg.status}} {{msg.timestamp | date:'h:mm:ss a zzzz'}}</h5>
+</mat-card>

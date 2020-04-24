@@ -1,5 +1,5 @@
 /** Constants for API Related **/
 export const url = { 
-    baseUrl:'http://localhost:3000',
-    productUrl:'products'
+    baseUrl:'http://localhost:4200',
+    productUrl:''
 }

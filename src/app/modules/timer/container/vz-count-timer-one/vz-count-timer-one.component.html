@@ -1,29 +1,29 @@
 <div class="container p-50"  fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" fxLayoutGap.xs="0">
-  <div class="item item-1" fxFlex="50%">
+  <div class="" fxFlex="50%">
     <app-vz-count-down-block [getCount]="countTimeLeft"></app-vz-count-down-block>
   </div>
-  <div class="item item-2" fxFlex="50%">
+  <div class="" fxFlex="50%">
     <mat-card class="prod-list">
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
             <mat-form-field class="form-element">
-                <input matInput placeholder="Enter Time Limit" formControlName="name">
-                <mat-error *ngIf="!name.valid && name.touched">
+                <input matInput placeholder="Enter Time Limit" formControlName="count">
+                <mat-error *ngIf="!count.valid && count.touched">
                     Enter Time Limit
                 </mat-error>
             </mat-form-field>
             <div class="form-element">
                 <button mat-raised-button color="primary" type="submit" class="button">Start/Pause</button>
-                <button mat-raised-button color="primary" type="button" class="button m-l-10" (click)='pauseTimer()'>Reset</button>
+                <button mat-raised-button color="primary" type="button" class="button m-l-10" (click)='setCountPauseTimer()'>Reset</button>
             </div>
         </form>
     </mat-card>
   </div>  
 </div>
 <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" fxLayoutGap.xs="0">
-  <div class="item item-4" fxFlex="50%">
+  <div class="" fxFlex="50%">
     <app-vz-count-down-status [getCountStatus]="countAddedRecent" fxFill></app-vz-count-down-status>
   </div>
-  <div class="item item-5" fxFlex="50%">
+  <div class="" fxFlex="50%">
     <app-vz-count-down-total [getCountStart]="countStart" [getCountPause]="countPause" fxFill></app-vz-count-down-total>
   </div>
 </div>

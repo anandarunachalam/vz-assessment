@@ -29,6 +29,11 @@ export const appRoutes: Routes = [
         path: 'timer',
         loadChildren: () => import('../timer/timer.module').then(m => m.TimerModule)
         
+    },
+    {
+        path: 'timer-sibling',
+        loadChildren: () => import('../timer-sibling/timer-sibling.module').then(m => m.TimerSiblingModule)
+        
     },    
     { path: '**', redirectTo: 'landing' }
 ];

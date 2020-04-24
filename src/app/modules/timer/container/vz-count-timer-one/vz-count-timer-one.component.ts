@@ -20,7 +20,7 @@ export class VzCountTimerOneComponent  {
   countPause = 0;
   countPauseStatus = false;
   countAddedRecent = []
-  today: number = Date.now();
+  getTimeStmp: number = Date.now();
 
   constructor(private formBuilder: FormBuilder) {}
   
@@ -31,7 +31,7 @@ export class VzCountTimerOneComponent  {
 
   createForm() {
     this.formGroup = this.formBuilder.group({
-      'name': [null, Validators.required],
+      'count': [null, Validators.required],
       'validate': ''
     });
   }
@@ -39,49 +39,42 @@ export class VzCountTimerOneComponent  {
   setChangeValidate() {
     this.formGroup.get('validate').valueChanges.subscribe(
       (validate) => {
-        this.formGroup.get('name').setValidators(Validators.required);
-        this.formGroup.get('name').updateValueAndValidity();
+        this.formGroup.get('count').setValidators(Validators.required);
+        this.formGroup.get('count').updateValueAndValidity();
       })
   }
 
-  get name() {
-    return this.formGroup.get('name') as FormControl
+  get count() {
+    return this.formGroup.get('count') as FormControl
   }
 
   onSubmit(vzFrmData) {
     
-    console.log(this.countAddedRecent);
-    
-    if(this.countPauseStatus === false ) {
-      this.countPauseStatus = true;
-      this.countAddedRecent.push({timestamp:this.today,status:"Started at"});
-      this.countStart++
-    } else {
-      this.countPauseStatus = false;
-      this.countAddedRecent.push({timestamp:this.today,status:"Paused at"});     
-      this.countPause++
-    }
-    console.log(this.countPauseStatus)
     this.formPostData = vzFrmData;
-
-    if (vzFrmData.name === null) {
-     // console.log('form not submitted');
+    if (vzFrmData.count === null) { 
+      
     } else {
       clearInterval(this.countInterval);
       this.countTimeLeft = vzFrmData.name;
-      this.startTimer()
+      this.setCountTimerStatus()
+      this.setCountStartTimer()
+      
     }   
   }
 
-  oberserableTimer() {
-    const source = timer(1000, 2000);
-    const abc = source.subscribe(val => {
-      console.log(val, '-');
-      this.countSubscribe = this.countTimeLeft - val;
-    });
+  setCountTimerStatus() { 
+    if(this.countPauseStatus === false ) {
+      this.countPauseStatus = true;
+      this.countAddedRecent.push({timestamp:this.getTimeStmp,status:"Started at"});
+      this.countStart++
+    } else {
+      this.countPauseStatus = false;
+      this.countAddedRecent.push({timestamp:this.getTimeStmp,status:"Paused at"});     
+      this.countPause++
+    }
   }
 
-  startTimer() {
+  setCountStartTimer() {
     this.countInterval = setInterval(() => {
       if (this.countTimeLeft > 0) {
         this.countTimeLeft--;
@@ -92,7 +85,7 @@ export class VzCountTimerOneComponent  {
     
   }
 
-  pauseTimer() {
+  setCountPauseTimer() {
     this.countTimeLeft = 0;
     clearInterval(this.countInterval);
   }
