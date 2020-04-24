@@ -55,7 +55,7 @@ export class VzCountTimerOneComponent  {
       
     } else {
       clearInterval(this.countInterval);
-      this.countTimeLeft = vzFrmData.name;
+      this.countTimeLeft = vzFrmData.count;
       this.setCountTimerStatus()
       this.setCountStartTimer()
       
